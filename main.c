@@ -58,6 +58,7 @@ void init() {
     // Doom Res
     SDL_RenderSetLogicalSize(renderer3d, WIDTH3D, HEIGHT3D);
 
+    SDL_CaptureMouse(true);
 
     px = 300;
     py = 300;
@@ -126,8 +127,7 @@ void buttons(SDL_Event event){
                 }
                 break;
             case SDL_MOUSEMOTION:
-                    printf("%d\n", event.motion.x);
-                    pa += 0.01 * event.motion.x;
+                    pa += 0.01 * event.motion.xrel;
                     if(pa<0)
                         pa += 2*PI;
                     if(pa>2*PI)
